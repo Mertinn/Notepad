@@ -60,5 +60,32 @@ namespace Notepad
                 return filePath;
             }
         }
+
+        private string CreateNewFile()
+        {
+            Stream myStream;
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+            saveFileDialog1.Filter = "txt files (*.txt)|*.txt";
+            saveFileDialog1.FilterIndex = 2;
+            saveFileDialog1.RestoreDirectory = true;
+
+            string filePath = string.Empty;
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                if ((myStream = saveFileDialog1.OpenFile()) != null)
+                {
+                    filePath = saveFileDialog1.FileName;
+                    myStream.Close();
+                }
+            }
+            return filePath;
+        }
+
+        private void newFileBtn_Click(object sender, EventArgs e)
+        {
+            string filePath = CreateNewFile();
+            editingFilePath = filePath;
+        }
     }
 }

@@ -34,12 +34,14 @@ namespace Notepad
             this.loadBtn = new System.Windows.Forms.ToolStripButton();
             this.saveBtn = new System.Windows.Forms.ToolStripButton();
             this.documentTextBox = new System.Windows.Forms.TextBox();
+            this.newFileBtn = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newFileBtn,
             this.loadBtn,
             this.saveBtn});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
@@ -79,6 +81,16 @@ namespace Notepad
             this.documentTextBox.Size = new System.Drawing.Size(758, 454);
             this.documentTextBox.TabIndex = 1;
             // 
+            // newFileBtn
+            // 
+            this.newFileBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.newFileBtn.Image = ((System.Drawing.Image)(resources.GetObject("newFileBtn.Image")));
+            this.newFileBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.newFileBtn.Name = "newFileBtn";
+            this.newFileBtn.Size = new System.Drawing.Size(42, 22);
+            this.newFileBtn.Text = "Nowy";
+            this.newFileBtn.Click += new System.EventHandler(this.newFileBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -101,6 +113,7 @@ namespace Notepad
         private System.Windows.Forms.ToolStripButton loadBtn;
         private System.Windows.Forms.ToolStripButton saveBtn;
         private System.Windows.Forms.TextBox documentTextBox;
+        private System.Windows.Forms.ToolStripButton newFileBtn;
     }
 }
 
