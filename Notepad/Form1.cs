@@ -32,9 +32,13 @@ namespace Notepad
             {
                 File.WriteAllText(editingFilePath, documentText);
             }
-            else
+            else if(!File.Exists(editingFilePath))
             {
-                File.Create(editingFilePath);
+                using (FileStream fs = File.Create(editingFilePath))
+                {
+                    fs.Close();
+                }
+                
                 File.WriteAllText(editingFilePath, documentText);
             }
         }
