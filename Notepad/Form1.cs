@@ -1,36 +1,42 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Notepad
 {
     public partial class Form1 : Form
     {
+        private string editingFilePath;
+
         public Form1()
         {
             InitializeComponent();
+            Text = "Notepad";
         }
 
         private void loadBtn_Click(object sender, EventArgs e)
         {
-            string filePath = OpenExplorerAndGetPath();
-            if(filePath != string.Empty)
+            editingFilePath = OpenExplorerAndGetPath();
+            if(editingFilePath != string.Empty)
             {
-                string documentText = File.ReadAllText(filePath);
+                string documentText = File.ReadAllText(editingFilePath);
                 documentTextBox.Text = documentText;
             }
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
+            string documentText = documentTextBox.Text;
 
+            if (File.Exists(editingFilePath))
+            {
+                File.WriteAllText(editingFilePath, documentText);
+            }
+            else
+            {
+                File.Create(editingFilePath);
+                File.WriteAllText(editingFilePath, documentText);
+            }
         }
 
         private string OpenExplorerAndGetPath()
