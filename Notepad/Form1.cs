@@ -34,11 +34,9 @@ namespace Notepad
             }
             else if(!File.Exists(editingFilePath))
             {
-                using (FileStream fs = File.Create(editingFilePath))
-                {
-                    fs.Close();
-                }
-                
+                string filePath = CreateNewFile();
+                editingFilePath = filePath;
+
                 File.WriteAllText(editingFilePath, documentText);
             }
         }
