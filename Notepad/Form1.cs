@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -12,6 +13,7 @@ namespace Notepad
         {
             InitializeComponent();
             Text = "Notepad";
+            label1.Text = $"Wielkość czcionki - {trackBar1.Value}";
         }
 
         private void loadBtn_Click(object sender, EventArgs e)
@@ -28,17 +30,21 @@ namespace Notepad
         {
             string documentText = documentTextBox.Text;
 
-            if (File.Exists(editingFilePath))
+            try
             {
-                File.WriteAllText(editingFilePath, documentText);
-            }
-            else if(!File.Exists(editingFilePath))
-            {
-                string filePath = CreateNewFile();
-                editingFilePath = filePath;
+                if (File.Exists(editingFilePath))
+                {
+                    File.WriteAllText(editingFilePath, documentText);
+                }
+                else if (!File.Exists(editingFilePath))
+                {
+                    string filePath = CreateNewFile();
+                    editingFilePath = filePath;
 
-                File.WriteAllText(editingFilePath, documentText);
+                    File.WriteAllText(editingFilePath, documentText);
+                }
             }
+            catch (Exception) { }
         }
 
         private string OpenExplorerAndGetPath()
@@ -84,6 +90,18 @@ namespace Notepad
         {
             string filePath = CreateNewFile();
             editingFilePath = filePath;
+        }
+
+        private void settingBtn_Click(object sender, EventArgs e)
+        {
+            settingsPanel.Enabled = !settingsPanel.Enabled;
+            settingsPanel.Visible = !settingsPanel.Visible;
+        }
+
+        private void trackBar1_ValueChanged(object sender, EventArgs e)
+        {
+            documentTextBox.Font = new Font(documentTextBox.Font.FontFamily, trackBar1.Value);
+            label1.Text = $"Wielkość czcionki - {trackBar1.Value}";
         }
     }
 }

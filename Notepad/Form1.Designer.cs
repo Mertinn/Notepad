@@ -31,11 +31,17 @@ namespace Notepad
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.newFileBtn = new System.Windows.Forms.ToolStripButton();
             this.loadBtn = new System.Windows.Forms.ToolStripButton();
             this.saveBtn = new System.Windows.Forms.ToolStripButton();
             this.documentTextBox = new System.Windows.Forms.TextBox();
-            this.newFileBtn = new System.Windows.Forms.ToolStripButton();
+            this.settingBtn = new System.Windows.Forms.ToolStripButton();
+            this.settingsPanel = new System.Windows.Forms.Panel();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.label1 = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
+            this.settingsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -43,12 +49,23 @@ namespace Notepad
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newFileBtn,
             this.loadBtn,
-            this.saveBtn});
+            this.saveBtn,
+            this.settingBtn});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(783, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // newFileBtn
+            // 
+            this.newFileBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.newFileBtn.Image = ((System.Drawing.Image)(resources.GetObject("newFileBtn.Image")));
+            this.newFileBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.newFileBtn.Name = "newFileBtn";
+            this.newFileBtn.Size = new System.Drawing.Size(42, 22);
+            this.newFileBtn.Text = "Nowy";
+            this.newFileBtn.Click += new System.EventHandler(this.newFileBtn_Click);
             // 
             // loadBtn
             // 
@@ -81,27 +98,62 @@ namespace Notepad
             this.documentTextBox.Size = new System.Drawing.Size(758, 454);
             this.documentTextBox.TabIndex = 1;
             // 
-            // newFileBtn
+            // settingBtn
             // 
-            this.newFileBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.newFileBtn.Image = ((System.Drawing.Image)(resources.GetObject("newFileBtn.Image")));
-            this.newFileBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.newFileBtn.Name = "newFileBtn";
-            this.newFileBtn.Size = new System.Drawing.Size(42, 22);
-            this.newFileBtn.Text = "Nowy";
-            this.newFileBtn.Click += new System.EventHandler(this.newFileBtn_Click);
+            this.settingBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.settingBtn.Image = ((System.Drawing.Image)(resources.GetObject("settingBtn.Image")));
+            this.settingBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.settingBtn.Name = "settingBtn";
+            this.settingBtn.Size = new System.Drawing.Size(68, 22);
+            this.settingBtn.Text = "Ustawienia";
+            this.settingBtn.Click += new System.EventHandler(this.settingBtn_Click);
+            // 
+            // settingsPanel
+            // 
+            this.settingsPanel.Controls.Add(this.label1);
+            this.settingsPanel.Controls.Add(this.trackBar1);
+            this.settingsPanel.Enabled = false;
+            this.settingsPanel.Location = new System.Drawing.Point(123, 28);
+            this.settingsPanel.Name = "settingsPanel";
+            this.settingsPanel.Size = new System.Drawing.Size(117, 63);
+            this.settingsPanel.TabIndex = 2;
+            this.settingsPanel.Visible = false;
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.Location = new System.Drawing.Point(3, 1);
+            this.trackBar1.Maximum = 30;
+            this.trackBar1.Minimum = 5;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(111, 45);
+            this.trackBar1.TabIndex = 0;
+            this.trackBar1.Value = 11;
+            this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1, 47);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(102, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Wielkość czcionki - ";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(783, 495);
+            this.Controls.Add(this.settingsPanel);
             this.Controls.Add(this.documentTextBox);
             this.Controls.Add(this.toolStrip1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.settingsPanel.ResumeLayout(false);
+            this.settingsPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -114,6 +166,10 @@ namespace Notepad
         private System.Windows.Forms.ToolStripButton saveBtn;
         private System.Windows.Forms.TextBox documentTextBox;
         private System.Windows.Forms.ToolStripButton newFileBtn;
+        private System.Windows.Forms.ToolStripButton settingBtn;
+        private System.Windows.Forms.Panel settingsPanel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TrackBar trackBar1;
     }
 }
 
