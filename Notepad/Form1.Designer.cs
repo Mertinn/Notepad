@@ -34,11 +34,11 @@ namespace Notepad
             this.newFileBtn = new System.Windows.Forms.ToolStripButton();
             this.loadBtn = new System.Windows.Forms.ToolStripButton();
             this.saveBtn = new System.Windows.Forms.ToolStripButton();
-            this.documentTextBox = new System.Windows.Forms.TextBox();
             this.settingBtn = new System.Windows.Forms.ToolStripButton();
+            this.documentTextBox = new System.Windows.Forms.TextBox();
             this.settingsPanel = new System.Windows.Forms.Panel();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.label1 = new System.Windows.Forms.Label();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.toolStrip1.SuspendLayout();
             this.settingsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
@@ -87,17 +87,6 @@ namespace Notepad
             this.saveBtn.Text = "Zapisz";
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
-            // documentTextBox
-            // 
-            this.documentTextBox.BackColor = System.Drawing.SystemColors.Control;
-            this.documentTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.documentTextBox.Location = new System.Drawing.Point(13, 29);
-            this.documentTextBox.Multiline = true;
-            this.documentTextBox.Name = "documentTextBox";
-            this.documentTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.documentTextBox.Size = new System.Drawing.Size(758, 454);
-            this.documentTextBox.TabIndex = 1;
-            // 
             // settingBtn
             // 
             this.settingBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
@@ -108,16 +97,36 @@ namespace Notepad
             this.settingBtn.Text = "Ustawienia";
             this.settingBtn.Click += new System.EventHandler(this.settingBtn_Click);
             // 
+            // documentTextBox
+            // 
+            this.documentTextBox.BackColor = System.Drawing.SystemColors.Control;
+            this.documentTextBox.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.documentTextBox.Location = new System.Drawing.Point(13, 29);
+            this.documentTextBox.Multiline = true;
+            this.documentTextBox.Name = "documentTextBox";
+            this.documentTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.documentTextBox.Size = new System.Drawing.Size(758, 454);
+            this.documentTextBox.TabIndex = 1;
+            // 
             // settingsPanel
             // 
             this.settingsPanel.Controls.Add(this.label1);
             this.settingsPanel.Controls.Add(this.trackBar1);
             this.settingsPanel.Enabled = false;
-            this.settingsPanel.Location = new System.Drawing.Point(123, 28);
+            this.settingsPanel.Location = new System.Drawing.Point(127, 21);
             this.settingsPanel.Name = "settingsPanel";
             this.settingsPanel.Size = new System.Drawing.Size(117, 63);
             this.settingsPanel.TabIndex = 2;
             this.settingsPanel.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1, 47);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(102, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Wielkość czcionki - ";
             // 
             // trackBar1
             // 
@@ -129,15 +138,6 @@ namespace Notepad
             this.trackBar1.TabIndex = 0;
             this.trackBar1.Value = 11;
             this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1, 47);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(102, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Wielkość czcionki - ";
             // 
             // Form1
             // 
